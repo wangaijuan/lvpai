@@ -231,5 +231,5 @@ server.get("/delm",(req,res)=>{
 //http://127.0.0.1:4000/delm?id=5,8
 //http://127.0.0.1:4000/login?uname=tom&upwd=123
 //http://127.0.0.1:4000/delm?id=6,7
-
+///
 
