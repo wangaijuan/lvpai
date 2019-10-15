@@ -17,7 +17,7 @@ var pool = mysql.createPool({
     user:"root",      //数据库用户名
     password:"",      //数据库密码
     port:3306,      //数据库端口
-    database:"xz",//库名
+    database:"lp",//库名
     connectionLimit:15//15连接
 })
 //4:配置跨域模块
