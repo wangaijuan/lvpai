@@ -3,11 +3,13 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 //测试 引入了Index.vue文件 
 import Index from "./components/Index.vue"
+import  My  from "./views/My.vue"
 Vue.use(Router)
 
 export default new Router({
   routes: [
     //测试:引入index.vue
+    {path:"/",name:'my',component:My},
     {path:"/Index",component:Index},
     {
       path: '/',
