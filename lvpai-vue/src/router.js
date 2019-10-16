@@ -1,16 +1,20 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-//测试 引入了Index.vue文件 
-import Index from "./components/Index.vue"
+// 引入了HomePage.vue文件 
+import HomePage from "./components/HomePage.vue"
 import  My  from "./views/My.vue"
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    //测试:引入index.vue
+    //引入HomePage.vue 路径的格式按照以下的方式  
+    {
+      path:"/HomePage",
+      name:HomePage,
+      component:HomePage
+    },
     {path:"/",name:'my',component:My},
-    {path:"/Index",component:Index},
     {
       path: '/',
       name: 'home',
