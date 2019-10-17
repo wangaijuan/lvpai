@@ -1,44 +1,87 @@
 <template>
-    <div>
-        <van-image width="100" height="100" src="../../assets/01.png"></van-image>
-        <van-cell islink @click="showPopup">预约商家</van-cell>
-        <van-popup v-model="show" position="top"
-        :style="{ height:'20%' }">这里空空如也</van-popup>
-        <van-cell islink @click="showPopup">收藏的商品/案例</van-cell>
-        <van-popup v-model="show">您还没有收藏的东东,赶紧去看看吧</van-popup>
-        <van-cell islink @click="showPopup">收藏的社区指南</van-cell>
-        <van-popup v-model="show">这里也空空如也</van-popup>
-        <van-cell islink @click="showPopup">备婚工具</van-cell>
-        <van-popup v-model="show" >热门工具</van-popup>
-        <van-cell islink @click="showPopup">备婚资料</van-cell>
-        <van-popup v-model="show">备婚新娘必备</van-popup>
-        <van-cell islink @click="showPopup">我的订单</van-cell>
-        <van-popup v-model="show">还没有相关订单</van-popup>
-        <van-cell islink @click="showPopup">幸福基金</van-cell>
-        <van-popup v-model="show">总基金￥0.0</van-popup>
-        <van-cell islink @click="showPopup">我的评价</van-cell>
-        <van-popup v-model="show">您还没有撰写过商家评价奥~马上写评价,迎幸福基金</van-popup>
-        <van-cell islink @click="showPopup">我的指南</van-cell>
-        <van-popup v-model="show">这里也空空如也</van-popup>
-        <van-cell islink @click="showPopup">商家合作</van-cell>
-        <van-popup v-model="show">百合云梯系统深度赋能婚礼企业</van-popup>
-        <van-cell islink @click="showPopup">意见反馈</van-cell>
-        <van-popup></van-popup>
-        <van-cell islink @click="showPopup">设置</van-cell>
-        <van-popup v-model="show">致电婚礼管家</van-popup>
-    </div>
+  <div @click="my">
+    <img class="user-poster" src="http://qnm.hunliji.com/o_1ckro7aefro516he1koe17cj12dv7.jpg?imageView2/2/w/640">
+    <van-row class="user-links">
+      <van-col span="6">
+        <van-icon name="pending-payment" />
+        获赞
+      </van-col>
+      <van-col span="6">
+        <van-icon name="records" />
+        关注
+      </van-col>
+      <van-col span="6">
+        <van-icon name="tosend" />
+        粉丝
+      </van-col>
+      <van-col span="6">
+        <van-icon name="logistics" />
+        足迹
+      </van-col>
+    </van-row>
+
+    <van-cell-group class="user-group">
+      <van-cell  title="预约商家"  />
+    </van-cell-group>
+
+    <van-cell-group>
+      <van-cell  title="收藏的商品/案例"  />
+      <van-cell  title="收藏的社区指南"  />
+      <van-cell  title="备婚工具"  />
+      <van-cell  title="备婚资料"  />
+      <van-cell  title="我的订单"  />
+      <van-cell  title="幸福基金"  />
+      <van-cell  title="我的评价"  />
+      <van-cell  title="我的指南"  />
+      <van-cell  title="商家合作"  />
+      <van-cell  title="意见反馈"  />
+      <van-cell  title="设置"  />
+      <van-cell  title="致电婚礼管家   13484524420"  />
+    </van-cell-group>
+  </div>
 </template>
 <script>
+import { Row, Col, Icon, Cell, CellGroup } from 'vant';
 export default {
-  data(){
-      return{
-          show:false
-      }
-  },
-  methods:{
-      showPopup(){
-          this.show=true;
-      }
-  } 
-}
+    data(){
+        return{
+
+        }
+    },
+    methods:{
+        my(){
+            // 点击跳转到login.vue
+            this.$router.push("/Login");
+        }
+    },
+    components: {
+        [Row.name]: Row,
+        [Col.name]: Col,
+        [Icon.name]: Icon,
+        [Cell.name]: Cell,
+        [CellGroup.name]: CellGroup
+  }
+};
 </script>
+<style lang="less">
+.user {
+  &-poster {
+    width: 100%;
+    height: 53vw;
+    display: block;
+  }
+  &-group {
+    margin-bottom: 15px;
+  }
+  &-links {
+    padding: 15px 0;
+    font-size: 12px;
+    text-align: center;
+    background-color: #fff;
+    .van-icon {
+      display: block;
+      font-size: 24px;
+    }
+  }
+}
+</style>
