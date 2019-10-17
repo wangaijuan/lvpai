@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 // 引入了HomePage.vue文件 
 import HomePage from "./components/HomePage.vue"
 import  My  from "./views/My.vue"
+import  Login  from "./components/Login.vue"
 Vue.use(Router)
 
 export default new Router({
@@ -15,6 +16,7 @@ export default new Router({
       component:HomePage
     },
     {path:"/",name:'my',component:My},
+    {path:"/",name:'login',component:Login},
     {
       path: '/',
       name: 'home',
