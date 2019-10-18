@@ -5,10 +5,17 @@ import Home from './views/Home.vue'
 import HomePage from "./components/HomePage.vue"
 import  My  from "./views/My.vue"
 import  Login  from "./components/Login.vue"
+import My_cart from "./components/My_cart.vue"
+import Tabbar from "./components/Tabbar.vue"
+
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    //引入Tabbar.vue
+    {path:"/Tabbar",name:Tabbar, component:Tabbar},
+    //引入My_vcart.vue
+    {path:"/My_cart",name:My_cart,component:My_cart},
     //引入HomePage.vue 路径的格式按照以下的方式  
     {
       path:"/HomePage",

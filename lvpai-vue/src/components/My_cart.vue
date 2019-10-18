@@ -1,7 +1,7 @@
 <template>
   <div>
     <p class="p1">购物车</p>
-    <hr>
+    <hr class="h1" style="color:red">
     <!--1.复选框：商品名，价格，删除-->
     <div class="cart-item">
       <div class="left">
@@ -9,7 +9,10 @@
         <img src="../assets/cart/01.jpg">
         <div class="lname">真爱殿堂 一字肩蕾丝蓬蓬纱婚纱</div>
       </div>
-      <div class="price">16888.00</div>
+      <div class="price">
+        16888.00
+        <p>删除</p>
+      </div>
     </div>
     <div class="cart-item">
       <div class="left">
@@ -17,18 +20,21 @@
         <img src="../assets/cart/02.jpg">
         <div class="lname">真爱殿堂 蕾丝婚纱</div>
       </div>
-      <div class="price">36888.00</div>
+      <div class="price">
+        36888.00
+        <p>删除</p>
+      </div>
     </div>
-  <!--2.删除选中商品复选框-->
-  <div>
-    商品数量
-    <span style="color:red">2</span>
-    <mt-button>删除选中商品</mt-button>
+  <!--3.数量及合计-->
+    <van-submit-bar :price="3050" button-text="合计"/>
   </div>
-  </div>
- 
 </template>
 
+<script>
+export default {
+  
+}
+</script>
 <style>
 /*购物车 */
 .p1{
@@ -52,13 +58,19 @@
   align-items:center;  /*垂直居中*/
 }
 /*3.修饰商品名称*/
-.lname{
-  margin-left:25px;
+.lname{ 
   color:#333;
+
 }
 /*4.修饰商品价格*/
 .price{
-  margin-left:25px;
+  margin:20px 0;
   color:red;
 }
+/*hr宽度 */
+.h1{
+  width:325px;
+}
+
+
 </style>
