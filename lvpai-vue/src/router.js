@@ -5,10 +5,28 @@ import Home from './views/Home.vue'
 import HomePage from "./components/HomePage.vue"
 import  My  from "./views/My.vue"
 import  Login  from "./components/Login.vue"
+import List from './components/list.vue'
+import Details from './components/details.vue'
+import Product from './components/product.vue'
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/product',
+      name: 'product',
+      component: Product
+  },
+  {
+      path: '/list',
+      name: 'list',
+      component: List
+  },
+  {
+      path: '/details',
+      name: 'details',
+      component: Details
+  },
     //引入HomePage.vue 路径的格式按照以下的方式  
     {
       path:"/HomePage",
