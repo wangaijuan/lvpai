@@ -12,15 +12,15 @@
     <!-- banner图 -->
     <div id="ban"><img src="../../public/img/1.jpg" /></div>
     <!-- 商品链接 -->
-    <div id="ico">
-        <a href=""><img src="../../public/img/d1.png" /></a>
-        <a href=""><img src="../../public/img/d2.png" /></a>
-        <a href=""><img src="../../public/img/d3.png" /></a>
+    <div id="ico" @click="shangpin">
+        <a href="#"><img src="../../public/img/d1.png" /></a>
+        <a href="#"><img src="../../public/img/d2.png" /></a>
+        <a href="#"><img src="../../public/img/d3.png" /></a>
     </div>
-    <div id="ico2">
-        <a href=""><img src="../../public/img/d4.png" /></a>
-        <a href=""><img src="../../public/img/d5.png" /></a>
-        <a href=""><img src="../../public/img/d6.png" /></a>
+    <div id="ico2" @click="shangpin">
+        <a href="#"><img src="../../public/img/d4.png" /></a>
+        <a href="#"><img src="../../public/img/d5.png" /></a>
+        <a href="#"><img src="../../public/img/d6.png" /></a>
     </div>
     <!-- 优选商家 -->
     <div id="yx">
@@ -78,6 +78,12 @@ export default {
                  plice:"￥30600.00"
                 },
             ]
+        }
+    },
+    methods:{
+        shangpin(){
+            // 点击跳转到product.vue
+            this.$router.push("/product");
         }
     },
 }

@@ -4,15 +4,13 @@ import Home from './views/Home.vue'
 // 引入了HomePage.vue文件 
 import HomePage from "./components/HomePage.vue"
 // 引入了My.vue文件 
-import  My  from "./views/My.vue"
+import  My  from "./components/My.vue"
 // 引入了Login.vue文件 
 import  Login  from "./components/Login.vue"
 // 引入了My_cart .vue文件 
 import My_cart from "./components/My_cart.vue"
-
+// 引入了Tabbar .vue文件
 import Tabbar from "./components/Tabbar.vue"
-
-//import Tabbar from "./components/Tabbar.vue"
 
 // 引入了 List.vue文件 
 import List from './components/list.vue'
@@ -20,8 +18,7 @@ import List from './components/list.vue'
 import Details from './components/details.vue'
 // 引入了Product .vue文件 
 import Product from './components/product.vue'
-// 引入了 Rank.vue文件 
-//import Rank from './components/Rank.vue'
+
 
 
 
@@ -35,15 +32,9 @@ export default new Router({
     {path:"/Tabbar",name:Tabbar, component:Tabbar},
     //引入My_cart.vue
     {path:"/My_cart",name:'my_cart',component:My_cart},
-    // 引入Rank.vue
-    //{path:"/Rank",name:'rank',component:Rank},
-
     //{path:"/Tabbar",name:Tabbar, component:Tabbar},
     //引入My_cart.vue
     {path:"/My_cart",name:'my_cart',component:My_cart},
-    // 引入Rank.vue
- //   {path:"/Rank",name:'rank',component:Rank},
-
     // 引入My.vue
     {path:"/My",name:'my',component:My},
     // 引入Login.vue

@@ -3,20 +3,27 @@
     <!--1.面板-->
       <!--外观-->
       <!--添加父元素和三个子面板，子面板和tabbar对应-->
-      <mt-tab-container v-model="active">
+      <mt-tab-container v-model="active" >
         <mt-tab-container-item id="tab1">
-          首页面板        
+        <HomePage ></HomePage>
         </mt-tab-container-item>
-        <mt-tab-container-item id="tab2">社区面板</mt-tab-container-item>
-        <mt-tab-container-item id="tab3">排行面板</mt-tab-container-item>
-        <mt-tab-container-item id="tab4">商城面板</mt-tab-container-item>
-        <mt-tab-container-item id="tab5">我的面板</mt-tab-container-item>
+        <mt-tab-container-item id="tab2">
+          <login ></login>
+        </mt-tab-container-item>
+        <mt-tab-container-item id="tab3">
+          <login></login>
+        </mt-tab-container-item>
+        <mt-tab-container-item id="tab4">
+         <List ></List>
+        </mt-tab-container-item>
+        <mt-tab-container-item id="tab5">
+         <My></My>
+        </mt-tab-container-item>
       </mt-tab-container>
 
-    <!--2.底部导航条-->
-    
+    <!--2.底部导航条-->    
       <!--底部导航条父元素-->
-    <mt-tabbar v-model="active" >
+    <mt-tabbar v-model="active" fixed>
       <!--添加三个按钮-->
       <mt-tab-item id="tab1">
         <img  slot="icon" src="../assets/tab/shouye2.png" class="im1">   
@@ -43,13 +50,27 @@
 </template>
 
 <script>
+import HomePage from "./HomePage.vue"
 import Login from "./Login.vue"
+
+import List from "./list.vue"
+import My from "./My.vue"
+
 export default {
   data(){
     return {
       //active作用1.保存用户选中按钮id
       active:"tab1"
     }
+  },
+  components:{  //注册子组件
+    "HomePage":HomePage,  //子组件名：对象 
+    "login":Login,
+    "login":Login,
+    "List":List,
+    "My":My  ,
+   
+    
   }
   
 }

@@ -1,6 +1,7 @@
 <template>
 <!-- 最外层父元素 -->
 <div class="parent">
+
   <!--搜素框 -->
     <div class="input">
       <p id="p1">西安</p>
@@ -389,6 +390,7 @@
           this.$router.push("list");
         }
       }
+      
     }
 </script>
 <style scoped>
@@ -458,8 +460,11 @@
   }
   /* 导航图片 */
   .nav img{
-    justify-content: space-between;
+    display: flex;
+    justify-content: space-around;
     padding:18px;
+    width:40px;
+    height:40px;
   }
   .nav img p{
     margin:0;
