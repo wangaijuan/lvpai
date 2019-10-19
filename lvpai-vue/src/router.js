@@ -9,7 +9,8 @@ import  My  from "./views/My.vue"
 import  Login  from "./components/Login.vue"
 // 引入了My_cart .vue文件 
 import My_cart from "./components/My_cart.vue"
-//import Tabbar from "./components/Tabbar.vue"
+// 引入了Tabbar.vue文件 
+import Tabbar from "./components/Tabbar.vue"
 // 引入了 List.vue文件 
 import List from './components/list.vue'
 // 引入了 Details.vue文件 
@@ -22,13 +23,17 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-
     //引入Tabbar.vue
-    //{path:"/Tabbar",name:Tabbar, component:Tabbar},
+    {path:"/Tabbar",name:Tabbar, component:Tabbar},
     //引入My_cart.vue
     {path:"/My_cart",name:'my_cart',component:My_cart},
     // 引入Rank.vue
-    {path:"/Rank",name:'rank',component:Rank},
+    //{path:"/Rank",name:'rank',component:Rank},
+
+    //{path:"/Tabbar",name:Tabbar, component:Tabbar},
+    //引入My_cart.vue
+    {path:"/My_cart",name:'my_cart',component:My_cart},
+    //{path:"/Rank",name:'rank',component:Rank},
     // 引入My.vue
     {path:"/My",name:'my',component:My},
     // 引入Login.vue

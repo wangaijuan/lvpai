@@ -1,4 +1,5 @@
 <template>
+
   <div @click="my">
     <img class="user-poster" src="http://qnm.hunliji.com/o_1ckro7aefro516he1koe17cj12dv7.jpg?imageView2/2/w/640">
     <van-row class="user-links">
@@ -38,7 +39,9 @@
       <van-cell  title="设置"  />
       <van-cell  title="致电婚礼管家   13484524420"  />
     </van-cell-group>
+    
   </div>
+ 
 </template>
 <script>
 import { Row, Col, Icon, Cell, CellGroup } from 'vant';
