@@ -22,7 +22,6 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-
     //引入Tabbar.vue
     //{path:"/Tabbar",name:Tabbar, component:Tabbar},
     //引入My_cart.vue
