@@ -11,7 +11,7 @@
           <login ></login>
         </mt-tab-container-item>
         <mt-tab-container-item id="tab3">
-          <login></login>
+          <rank></rank>
         </mt-tab-container-item>
         <mt-tab-container-item id="tab4">
          <List ></List>
@@ -24,7 +24,7 @@
     <!--2.底部导航条-->    
       <!--底部导航条父元素-->
     <mt-tabbar v-model="active" fixed>
-      <!--添加三个按钮-->
+      <!--添加按钮-->
       <mt-tab-item id="tab1">
         <img  slot="icon" src="../assets/tab/shouye2.png" class="im1">   
         首页
@@ -52,7 +52,7 @@
 <script>
 import HomePage from "./HomePage.vue"
 import Login from "./Login.vue"
-
+import Rank from "./Rank.vue"
 import List from "./list.vue"
 import My from "./My.vue"
 
@@ -66,33 +66,43 @@ export default {
   components:{  //注册子组件
     "HomePage":HomePage,  //子组件名：对象 
     "login":Login,
-    "login":Login,
+    "rank":Rank,
     "List":List,
-    "My":My  ,
-   
-    
-  }
-  
+    "My":My  ,   
+  } 
 }
-
-
 </script>
 
 
 
 <style scoped>
-.mint-tab-item-icon > * {
+.mint-tab-item-icon {
     display: block;
     width: 100%;
     height: 80%;
-    margin-left:-5px;
+    margin-left:-10px;
 
-}
+
+} 
 .mint-tab-item-label {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 2;  
 }
+/*图标 */
 .im1{
   padding:5px;
+}
+/*大图标 */
+.mint-tab-item {
+    display: block;
+    padding: -5px 0;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-decoration: none;
+}
+
+.im1[data-v-7b7e5f8e] {
+    padding: 0px;
 }
 </style>

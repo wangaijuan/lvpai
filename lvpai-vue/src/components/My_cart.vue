@@ -10,7 +10,10 @@
         <div class="lname">真爱殿堂 一字肩蕾丝蓬蓬纱婚纱</div>
       </div>
       <div class="price">
-        16888.00
+        <p>16888.00</p>
+        <button>-</button>
+				<span>1</span>
+				<button>+</button>
         <p>删除</p>
       </div>
     </div>
@@ -19,9 +22,13 @@
         <input type="checkbox">
         <img src="../assets/cart/02.jpg">
         <div class="lname">真爱殿堂 蕾丝婚纱</div>
+        
       </div>
       <div class="price">
-        36888.00
+        <p>3600</p>
+        <button>-</button>
+				<span>1</span>
+				<button>+</button>
         <p>删除</p>
       </div>
     </div>
