@@ -18,12 +18,6 @@ import Details from './components/details.vue'
 // 引入了Product .vue文件 
 import Product from './components/product.vue'
 
-
-
-
-
-
-
 // 引入了 Rank.vue文件 
 import Rank from './components/Rank.vue'
 

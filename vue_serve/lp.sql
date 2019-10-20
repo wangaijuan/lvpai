@@ -37,7 +37,7 @@ CREATE TABLE lp_shoppingcart_item(
   user_id INT,      #用户编号
   product_id INT,   #商品编号
   count INT,        #购买数量
-  product_price INT  #商品价格
+  product_price INT,  #商品价格
   is_checked BOOLEAN #是否已勾选，确定购买
 );
 /*商家用户订单*/

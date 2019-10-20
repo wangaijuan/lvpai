@@ -3,9 +3,10 @@
         <!-- 导航栏 -->
         <van-nav-bar
             title="婚纱礼服"
-            left-text="返回"
             left-arrow    
-            @click-left="onClickLeft"
+            @click-left="goBack"
+            style="position:fixed; top:0;
+            width:100%;"
         />
         <!-- 商品列表 -->
         <div class="c_lis">
@@ -136,13 +137,15 @@ export default {
         }
     },
     methods: {
-        onClickLeft() {
-            Toast('返回');
+        goBack() {
+            this.$router.push("/list");
         }
     },
 }
 </script>
 <style scoped>
+    /* 导航栏 */
+    .van-nav-bar .van-icon{color:#000;}
     /* 商品列表 */
     p{margin:0; padding:0;}
     .c_lis{margin-top:15px; display:flex; justify-content:space-between; flex-wrap:wrap;}

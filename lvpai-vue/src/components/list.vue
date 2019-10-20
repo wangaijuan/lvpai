@@ -12,15 +12,13 @@
     <!-- banner图 -->
     <div id="ban"><img src="../../public/img/1.jpg" /></div>
     <!-- 商品链接 -->
-    <div id="ico" @click="shangpin">
-        <a href="#"><img src="../../public/img/d1.png" /></a>
-        <a href="#"><img src="../../public/img/d2.png" /></a>
-        <a href="#"><img src="../../public/img/d3.png" /></a>
-    </div>
-    <div id="ico2" @click="shangpin">
-        <a href="#"><img src="../../public/img/d4.png" /></a>
-        <a href="#"><img src="../../public/img/d5.png" /></a>
-        <a href="#"><img src="../../public/img/d6.png" /></a>
+    <div id="ico">
+        <img src="../../public/img/d1.png" @click="toDetails"/>
+        <img src="../../public/img/d2.png" @click="toDetails"/>
+        <img src="../../public/img/d3.png" @click="toDetails"/> 
+        <img src="../../public/img/d4.png" @click="toDetails"/> 
+        <img src="../../public/img/d5.png" @click="toDetails"/> 
+        <img src="../../public/img/d6.png" @click="toDetails"/> 
     </div>
     <!-- 优选商家 -->
     <div id="yx">
@@ -30,9 +28,10 @@
     <!-- 人气推荐 -->
     <p class="p_2">人气推荐</p>
     <div class="rq" >
-        <div class="c_lef" v-for="(item,i) of list" :key="i">
+        <div class="c_lef" v-for="(item,i) of list" :key="i" @click="toProduct(item.pid)">
             <img src="../../public/img/l1.png">
             <p class="c_name">真爱殿堂 蕾丝无袖拖尾婚纱</p>
+            <!-- {{item.title}} -->
             <div class="tex">
                 <p class="pay">1.6w人付款</p>
                 <p class="plice">￥30600.00</p>
@@ -47,45 +46,65 @@ export default {
     data() {
         return {
             list:[
+                //0.空数组
                 {img:"../../public/img/l1.png",
                  uname:"真爱殿堂 蕾丝无袖拖尾婚纱",
                  pay:"1.6w人付款",
-                 plice:"￥30600.00"
+                 plice:"￥30600.00",
+                 pid:1
                 },
                 {img:"../../public/img/l1.png",
                  uname:"真爱殿堂 蕾丝无袖拖尾婚纱",
                  pay:"1.6w人付款",
-                 plice:"￥30600.00"
+                 plice:"￥30600.00",
+                 pid:2
                 },
                 {img:"../../public/img/l1.png",
                  uname:"真爱殿堂 蕾丝无袖拖尾婚纱",
                  pay:"1.6w人付款",
-                 plice:"￥30600.00"
+                 plice:"￥30600.00",
+                 pid:3
                 },
                 {img:"../../public/img/l1.png",
                  uname:"真爱殿堂 蕾丝无袖拖尾婚纱",
                  pay:"1.6w人付款",
-                 plice:"￥30600.00"
+                 plice:"￥30600.00",
+                 pid:4
                 },
                 {img:"../../public/img/l1.png",
                  uname:"真爱殿堂 蕾丝无袖拖尾婚纱",
                  pay:"1.6w人付款",
-                 plice:"￥30600.00"
+                 plice:"￥30600.00",
+                 pid:5
                 },
                 {img:"../../public/img/l1.png",
                  uname:"真爱殿堂 蕾丝无袖拖尾婚纱",
                  pay:"1.6w人付款",
-                 plice:"￥30600.00"
+                 plice:"￥30600.00",
+                 pid:6
                 },
             ]
         }
     },
     methods:{
-        shangpin(){
-            // 点击跳转到product.vue
-            this.$router.push("/product");
+        toDetails(){
+            // 点击跳转到details.vue
+            this.$router.push("/details");
+        },
+        toProduct(pid){
+            console.log(pid);
+            this.$router.push("/product?pid="+pid);
         }
     },
+    // mounted() {
+    //     //0.加载完成后发送请求
+    //     this.axios.get("url").then((res)=>{
+    //         console.log(res);//中间把那到的数据放在list里
+    //         this.list=res.data;
+    //     }).catch(function (error) {
+    //         console.log(error);
+    //     });
+    // },
 }
 </script>
 <style scoped>
