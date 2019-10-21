@@ -1,22 +1,25 @@
 <template>
     <div id="container">
         <table></table>
-        <div class="btn">
-            <van-button color="linear-gradient(to right, #4bb0ff, #6149f6)" @click="Clogin">登录</van-button>
-            <van-button color="linear-gradient(to right, #4bb0ff, #6149f6)">注册</van-button>
-        </div>
+    <div class="btn">
+        <input class="input1" type="text" placeholder="请输入用户名">
+        <input class="input2" type="text" placeholder="请输入密码">
+        <input class="input3" type="text" placeholder="请输入电话">
+        <button class="btn1" @click="login" >登录</button>
+    </div>
     </div>
 </template>
 <script>
 export default {
-   data(){
-       return{
-
+    data(){
+        return{
+            uname:"",
+            upwd:"",
+            phone:""
         }
     },
     methods:{
-
-        Clogin(){
+        login(){
             // 创建正则表达式3~12位 字母数字
              var ureg=/^[a-z0-9]{3,12}$/i;
              var treg=/^1[3-8]\d{9}$/;
@@ -40,32 +43,45 @@ export default {
             //发送ajax请求
              var url = "login";
              var obj = {uname:u,upwd:p,phone:t};
-             console.log(obj);
              this.axios.get(url,{params:obj}).then(res=>{
                 if(res.data.code<0){
                 this.$messagebox("消息","用户名,密码和手机号有误");
             }else{
             //跳转product组件
-            this.$router.push("/Clogin");
+            this.$router.push("/product");
             } 
           })
-
-        
-    },
-   } 
-
+        }
+    }
+}
 </script>
-<style scoped>
-   #container{
-       width:375px;
+<style scope>
+    #container{
+        width:375px;
         height:667px;
         margin:0 auto;
-        background-image:url(../assets/Clogin/0.jpg);
+        background-image:url(../assets/login/0.jpg);
         background-repeat:no-repeat;
         background-size:cover;
-   }
-   .btn{
-       margin:428px 0;
-   }
-   
-</style>
+    }
+    .input1{
+       padding:14px; 
+    }
+    .input2{
+        margin:40px 0; 
+        padding:14px;
+    }
+    .input3{
+        padding:14px;
+    }
+    .btn{
+        margin:305px 8px;
+        background-color:rgba(0,0,0,0.3);
+    }
+    .btn1{
+        width:77%;height:51px;
+		color:#77747a;
+		font-size:20px;
+		margin-top:31px;
+    }
+</style>   

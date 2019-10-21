@@ -17,20 +17,21 @@ import List from './components/list.vue'
 import Details from './components/details.vue'
 // 引入了Product .vue文件 
 import Product from './components/product.vue'
-
 // 引入了 Rank.vue文件 
 import Rank from './components/Rank.vue'
+// 引入了ChooseLogin.vue文件
+import Clogin  from './components/Clogin.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    // 引入Chooselogin.vue
+    {path:"/Clogin",name:Clogin,component:Clogin},
     //引入Tabbar.vue
     {path:"/Tabbar",name:Tabbar, component:Tabbar},
     //引入My_cart.vue
     {path:"/My_cart",name:'my_cart',component:My_cart},   
-    //引入My_cart.vue
-    {path:"/My_cart",name:'my_cart',component:My_cart},
     //引入Rank.vue
     {path:"/Rank",name:'rank',component:Rank},
     // 引入My.vue
