@@ -7,18 +7,20 @@ CREATE DATABASE lp CHARSET=UTF8;
 /*进入创建的数据库*/
 USE lp;
 
+
+
 /*用户信息*/
-CREATE TABLE user(
-  uid SMALLINT PRIMARY KEY,
+CREATE TABLE lp_user(
+  id SMALLINT PRIMARY KEY,
   uname VARCHAR(50) ,
   upwd VARCHAR(32) ,
   phone VARCHAR(20)
 );
 /*插入登录数据*/
-INSERT INTO user VALUES(1,'doudou','111111','13052321201');
-INSERT INTO user VALUES(2,'yaya','222222','16523201456');
-INSERT INTO user VALUES(3,'haha','333333','18032015210');
-INSERT INTO user VALUES(4,'lala','444444','17632018956');
+INSERT INTO lp_user VALUES(1,'doudou','111111','13052321201');
+INSERT INTO lp_user VALUES(2,'yaya','222222','16523201456');
+INSERT INTO lp_user VALUES(3,'haha','333333','18032015210');
+INSERT INTO lp_user VALUES(4,'lala','444444','17632018956');
 
 /*商品详情*/
 CREATE TABLE lp_index_product(

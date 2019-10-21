@@ -47,6 +47,7 @@ export default {
             //发送ajax请求
              var url = "login";
              var obj = {uname:u,upwd:p,phone:t};
+             console.log(obj);
              this.axios.get(url,{params:obj}).then(res=>{
                 if(res.data.code<0){
                 this.$messagebox("消息","用户名,密码和手机号有误");

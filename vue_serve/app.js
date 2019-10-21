@@ -5,7 +5,7 @@
 //  mysql           数据库驱动
 //  express         web服务器
 //下载命令在线  
-//npm i cors express-session express  mysql
+//1.npm i cors express-session express  mysql
 //2:将以上四个模块引入到当程序
 const express = require("express");
 const mysql = require("mysql");
@@ -24,58 +24,81 @@ var pool = mysql.createPool({
 //  允许哪个程序跨域访问服务器
 //  脚手架:3001 允许3001访问我
 //  服务器:4000 你
-var server = express();
-server.use(cors({
-  //允许程序列表
-  origin:["http://127.0.0.1:3001","http://localhost:3001"],
-  credentials:true//每次请求需要验证
-}))
-//5:配置session模块
-server.use(session({
-   secret:"128位字符串",//安全字符串
+ var server = express();
+ server.use(cors({
+//   //允许程序列表
+   origin:["http://127.0.0.1:8080","http://localhost:8080"],
+//   credentials:true//每次请求需要验证
+ }))
+// //5:配置session模块
+ server.use(session({
+    secret:"128位字符串",//安全字符串
    resave:true,//请求时更新数据
-   saveUninitialized:true//保存初始数据
-}))
+    saveUninitialized:true//保存初始数据
+ }))
 //6:配置项目静态目录 public
 server.use(express.static("public"))
-//7:创建express对象绑定4000端口
-server.listen(4000);
+//7:创建express对象绑定5050端口
+server.listen(5050);
 
-//8:功能一:完成用户登录
-server.get("/login",(req,res)=>{
-//(1)获取脚手架参数 uname upwd
-var uname = req.query.uname;
-var upwd = req.query.upwd;
-console.log(uname,upwd)
-//(2)创建sql语句查询
-var sql = "SELECT id FROM xz_login WHERE uname = ? AND upwd = md5(?)";
-//(3)执行sql语句
-pool.query(sql,[uname,upwd],(err,result)=>{
-  if(err)throw err;
-  //(4)获取执行结果
-  //(5)判断查询是否成功 result.length
-  if(result.length==0){
-    res.send({code:-1,msg:"用户名或密码有误"})
-  }else{
-    //5.1保存用户id在session对象中
-    //result数据格式[{id:1}]
-    req.session.uid=result[0].id;
-    res.send({code:1,msg:"登录成功"})
-  }
-  //(6)将结果返回脚手架
-  })
-});
+//功能一:完成用户登录
+server.get("/Login",(req,res)=>{
+  //1.获取参数
+  var uname=req.query.uname;
+  var upwd=req.query.upwd;
+   var phone=req.query.phone;
+  //console.log(uname,upwd,phone);
+  //2.sql语句
+  var sql = "SELECT id FROM lp_login WHERE uname = ? AND upwd = md5(?) AND phone = ?";
+  //3.执行sql语句
+  pool.query(sql,[uname,upwd,phone],(err,result)=>{
+    if(err)throw err;
+    //(4)获取执行结果
+    //(5)判断查询是否成功 result.length
+    if(result.length==0){
+      res.send({code:-1,msg:"用户名或密码有误"})
+    }else{
+      //5.1保存用户id在session对象中
+      //result数据格式[{id:1}]
+      req.session.uid=result[0].id;
+      res.send({code:1,msg:"登录成功"})
+    }
+    //(6)将结果返回脚手架
+    })
+  });
+  
+  //#检测
+  //(1)查询数据库是否有lp_login
+  //   USE lp;
+  //   SELECT * FROM lp_login;
+  //(2)启动服务器
+  //   node app.js
+  //(3)打开浏览器在地址栏输入按回
+  //   http://127.0.0.1:4000/login?uname=tom&upwd=123
+  //   http://127.0.0.1:4000/login?uname=tom&upwd=122   
+
+ 
+  //#检测
+  //(1)查询数据库是否有lp_login
+  //   USE lp;
+  //   SELECT * FROM lp_login;
+  //(2)启动服务器
+  //   node app.js
+  //(3)打开浏览器在地址栏输入按回
+  //   http://127.0.0.1:4000/login?uname=tom&upwd=123
+  //   http://127.0.0.1:4000/login?uname=tom&upwd=122   
+
 
 //#检测
-//(1)查询数据库是否有xz_login
+//(1)查询数据库是否有lp_user
 //   USE xz;
-//   SELECT * FROM xz_login;
+//   SELECT * FROM lp_user;
 //(2)启动服务器
 //   node app.js
 //(3)打开浏览器在地址栏输入按回
 //   http://127.0.0.1:4000/login?uname=tom&upwd=123
 //   http://127.0.0.1:4000/login?uname=tom&upwd=122   
- 
+/* 
 //9功能二：分页显示商品列表
 //(1).接收GET/product
 server.get("/product",(req,res)=>{
@@ -232,4 +255,4 @@ server.get("/delm",(req,res)=>{
 //http://127.0.0.1:4000/login?uname=tom&upwd=123
 //http://127.0.0.1:4000/delm?id=6,7
 
-
+*/
