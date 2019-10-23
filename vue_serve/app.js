@@ -49,7 +49,7 @@ server.get("/Login",(req,res)=>{
    var phone=req.query.phone;
   //console.log(uname,upwd,phone);
   //2.sql语句
-  var sql = "SELECT id FROM lp_login WHERE uname = ? AND upwd = md5(?) AND phone = ?";
+  var sql = "SELECT id FROM lp_user WHERE uname = ? AND upwd = md5(?) AND phone = ?";
   //3.执行sql语句
   pool.query(sql,[uname,upwd,phone],(err,result)=>{
     if(err)throw err;
@@ -68,40 +68,19 @@ server.get("/Login",(req,res)=>{
   });
   
   //#检测
-  //(1)查询数据库是否有lp_login
+  //(1)查询数据库是否有lp_user
   //   USE lp;
-  //   SELECT * FROM lp_login;
+  //   SELECT * FROM lp_user;
   //(2)启动服务器
   //   node app.js
   //(3)打开浏览器在地址栏输入按回
-  //   http://127.0.0.1:4000/login?uname=tom&upwd=123
-  //   http://127.0.0.1:4000/login?uname=tom&upwd=122   
-
+  //   http://127.0.0.1:5050/login?uname=tom&upwd=123&phone=12345678910
+  
  
-  //#检测
-  //(1)查询数据库是否有lp_login
-  //   USE lp;
-  //   SELECT * FROM lp_login;
-  //(2)启动服务器
-  //   node app.js
-  //(3)打开浏览器在地址栏输入按回
-  //   http://127.0.0.1:4000/login?uname=tom&upwd=123
-  //   http://127.0.0.1:4000/login?uname=tom&upwd=122   
-
-
-//#检测
-//(1)查询数据库是否有lp_user
-//   USE xz;
-//   SELECT * FROM lp_user;
-//(2)启动服务器
-//   node app.js
-//(3)打开浏览器在地址栏输入按回
-//   http://127.0.0.1:4000/login?uname=tom&upwd=123
-//   http://127.0.0.1:4000/login?uname=tom&upwd=122   
-/* 
-//9功能二：分页显示商品列表
-//(1).接收GET/product
-server.get("/product",(req,res)=>{
+  
+//功能二：分页显示商品列表
+//(1).接收GET/details
+server.get("/details",(req,res)=>{
 //(2).接收两个参数  pno页码 pagePagesize页大小
 var pno=req.query.pno;
 var ps=req.query.pageSize;
@@ -114,7 +93,7 @@ var off=(pno-1)*ps;
 ps=parseInt(ps);
 //(6).创建sql语句
 //自己写 库名，表名，列名 小写
-var sql = "SELECT lid,price,lname,img_url FROM xz_laptop LIMIT ?,?";
+var sql = "SELECT lid,price,title,promise FROM lp_laptop LIMIT ?,?";
 //(7).执行sql语句
 pool.query(sql,[off,ps],(err,result)=>{
   if(err)throw err;
@@ -126,9 +105,9 @@ pool.query(sql,[off,ps],(err,result)=>{
 
 //检测 83~104 复制 你app.js重新
 //启动 node app.js
-//http://127.0.0.1:4000/product
+//http://127.0.0.1:5050/details
 //http://127.0.0.1:4000/product?pno=2
-
+/*
 //功能三:将商品添加至购物车
 //1:接收请求 GET /addcart
 server.get("/addcart",(req,res)=>{

@@ -1,10 +1,11 @@
 <template>
   <div id="app">
+    <router-view>
     <div id="nav">
-      <router-link to="/Tabbar">Tabbar</router-link> |
-     <!-- <router-link to="/about">About</router-link> -->
+      <!-- <router-link to="/Tabbar">Tabbar</router-link> | -->
+     <Tabbar></Tabbar>
     </div>
-    <router-view/>
+    </router-view>
   </div>
 </template>
 

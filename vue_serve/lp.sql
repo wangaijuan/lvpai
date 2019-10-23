@@ -9,31 +9,19 @@ USE lp;
 
 
 
-/*用户信息*/
+/*1.用户信息*/
 CREATE TABLE lp_user(
-  id SMALLINT PRIMARY KEY,
+  id  int primary key auto_increment,
   uname VARCHAR(50) ,
   upwd VARCHAR(32) ,
   phone VARCHAR(20)
 );
 /*插入登录数据*/
-INSERT INTO lp_user VALUES(1,'doudou','111111','13052321201');
+INSERT INTO lp_user VALUES(1,'doudou','123456','18052321201');
 INSERT INTO lp_user VALUES(2,'yaya','222222','16523201456');
-INSERT INTO lp_user VALUES(3,'haha','333333','18032015210');
-INSERT INTO lp_user VALUES(4,'lala','444444','17632018956');
 
-/*商品详情*/
-CREATE TABLE lp_index_product(
-  did INT PRIMARY KEY AUTO_INCREMENT,
-  title VARCHAR(64),
-  details VARCHAR(128),
-  price DECIMAL(10,2),
-  href VARCHAR(128),
-  seq_recommended TINYINT,
-  seq_new_arrival TINYINT,
-  seq_top_sale TINYINT
-);
-/*购物车条目*/
+
+/*2.购物车条目*/
 CREATE TABLE lp_shoppingcart_item(
   cid INT PRIMARY KEY AUTO_INCREMENT,
   user_id INT,      #用户编号
@@ -42,7 +30,8 @@ CREATE TABLE lp_shoppingcart_item(
   product_price INT,  #商品价格
   is_checked BOOLEAN #是否已勾选，确定购买
 );
-/*商家用户订单*/
+
+/*3.商家用户订单*/
 CREATE TABLE lp_order(
   oid INT PRIMARY KEY AUTO_INCREMENT,
   user_id INT,
@@ -54,30 +43,34 @@ CREATE TABLE lp_order(
   received_time BIGINT    #签收时间
 )AUTO_INCREMENT=10000000;
 
-/*用户订单*/
+/*4.用户订单*/
 CREATE TABLE lp_order_detail(
   lid INT PRIMARY KEY AUTO_INCREMENT,
   order_id INT,           #订单编号
   product_id INT,         #产品编号
   count INT               #购买数量
 );
-/*首页轮播图*/
+/*5.首页轮播图*/
 CREATE TABLE lp_index_carousel(
   sid INT PRIMARY KEY AUTO_INCREMENT,
   img VARCHAR(128),
   title VARCHAR(64),
   href VARCHAR(128)
 );
-/*婚纱*/
-CREATE TABLE xz_laptop(
+
+/*6.婚纱details*/
+CREATE TABLE lp_laptop(
   lid INT PRIMARY KEY AUTO_INCREMENT,
-  title VARCHAR(128),         #主标题
+  title VARCHAR(128),         #标题名
   price DECIMAL(10,2),        #价格
-  promise VARCHAR(64),        #服务承诺
-  lname VARCHAR(32),          #商品名称
-  details VARCHAR(1024),      #产品详细说明
-  sold_count INT,             #已售出的数量
-  is_onsale BOOLEAN           #是否促销中
+  promise VARCHAR(64)       #服务承诺
+
 );
-
-
+/*插入details数据*/
+INSERT INTO lp_laptop VALUES(null,'真爱殿堂 高领罩衫吊带拖尾婚纱','15500','有运费');
+INSERT INTO lp_laptop VALUES(null,'真爱殿堂 深v透视钉珠拖尾婚纱','15800','有运费');
+INSERT INTO lp_laptop VALUES(null,'真爱殿堂 蕾丝无袖拖尾婚纱','18000','有运费');
+INSERT INTO lp_laptop VALUES(null,'真爱殿堂 抹胸蕾丝拖尾婚纱','12500','有运费');
+INSERT INTO lp_laptop VALUES(null,'真爱殿堂 一字肩五分袖婚纱','10600','有运费');
+INSERT INTO lp_laptop VALUES(null,'真爱殿堂 兰玉 蓝精灵Angelina','11860','有运费');
+INSERT INTO lp_laptop VALUES(null,'真爱殿堂 花朵蕾丝抹胸大拖尾蓬蓬纱','12060','有运费');

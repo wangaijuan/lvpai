@@ -2,9 +2,9 @@
     <div id="container">
         <table></table>
     <div class="btn">
-        <input class="input1" type="text" placeholder="请输入用户名">
-        <input class="input2" type="text" placeholder="请输入密码">
-        <input class="input3" type="text" placeholder="请输入电话">
+        <input class="input1" type="text" placeholder="请输入用户名" v-model="uname" :attr="{autofocus:true}">
+        <input class="input2" type="text" placeholder="请输入密码" v-model="upwd" :attr="{autofocus:true}">
+        <input class="input3" type="text" placeholder="请输入电话" v-model="phone" :attr="{autofocus:true}">
         <button class="btn1" @click="login" >登录</button>
     </div>
     </div>
@@ -20,18 +20,18 @@ export default {
     },
     methods:{
         login(){
-            // 创建正则表达式3~12位 字母数字
-             var ureg=/^[a-z0-9]{3,12}$/i;
-             var treg=/^1[3-8]\d{9}$/;
             //获取用户名和密码
             var u=this.uname;
             var p=this.upwd;
             var t=this.phone;
-            //用户
+            // 创建正则表达式3~12位 字母数字
+             var ureg=/^[a-z0-9]{3,12}$/i;
+             var treg=/^1[3-8]\d{9}$/;         
+            //验证用户
             if(ureg.test(u)==false){
-                this.$messagebox("消息","用户名格式不正确");
+                this.$messagebox("","用户名格式不正确");
                 return;
-            }
+            };
             if(ureg.test(p)==false){
                 this.$messagebox("消息","密码输入错误");
                 return;
@@ -43,14 +43,17 @@ export default {
             //发送ajax请求
              var url = "login";
              var obj = {uname:u,upwd:p,phone:t};
+            //console.log(obj);
              this.axios.get(url,{params:obj}).then(res=>{
+                console.log(res);
+                //  console.log(res.data.code);
                 if(res.data.code<0){
                 this.$messagebox("消息","用户名,密码和手机号有误");
             }else{
             //跳转product组件
             this.$router.push("/product");
             } 
-          })
+          });
         }
     }
 }
