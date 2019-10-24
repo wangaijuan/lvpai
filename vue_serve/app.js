@@ -30,11 +30,11 @@ var pool = mysql.createPool({
    origin:["http://127.0.0.1:8080","http://localhost:8080"],
 //   credentials:true//每次请求需要验证
  }))
-// //5:配置session模块
+//5:配置session模块
  server.use(session({
-    secret:"128位字符串",//安全字符串
-   resave:true,//请求时更新数据
-    saveUninitialized:true//保存初始数据
+  secret:"128位字符串",//安全字符串
+  resave:true,//请求时更新数据
+  saveUninitialized:true//保存初始数据
  }))
 //6:配置项目静态目录 public
 server.use(express.static("public"))
@@ -42,27 +42,28 @@ server.use(express.static("public"))
 server.listen(5050);
 
 //功能一:完成用户登录
-server.get("/Login",(req,res)=>{
+server.get("/Clogin",(req,res)=>{
   //1.获取参数
   var uname=req.query.uname;
   var upwd=req.query.upwd;
-   var phone=req.query.phone;
-  //console.log(uname,upwd,phone);
+  var phone=req.query.phone;
+  console.log(uname,upwd,phone);
   //2.sql语句
-  var sql = "SELECT id FROM lp_user WHERE uname = ? AND upwd = md5(?) AND phone = ?";
+  var sql = "SELECT * FROM lp_user WHERE uname = ? AND upwd = md5(?) AND phone = ?";
   //3.执行sql语句
   pool.query(sql,[uname,upwd,phone],(err,result)=>{
     if(err)throw err;
     //(4)获取执行结果
+    console.log(result);
     //(5)判断查询是否成功 result.length
     if(result.length==0){
       res.send({code:-1,msg:"用户名或密码有误"})
-    }else{
-      //5.1保存用户id在session对象中
+   }else{
+     //5.1保存用户id在session对象中
       //result数据格式[{id:1}]
-      req.session.uid=result[0].id;
-      res.send({code:1,msg:"登录成功"})
-    }
+     req.session.uid=result[0].id;
+       res.send({code:1,msg:"登录成功"})
+     }
     //(6)将结果返回脚手架
     })
   });
@@ -74,10 +75,10 @@ server.get("/Login",(req,res)=>{
   //(2)启动服务器
   //   node app.js
   //(3)打开浏览器在地址栏输入按回
-  //   http://127.0.0.1:5050/login?uname=tom&upwd=123&phone=12345678910
+  //   http://127.0.0.1:5050/Clogin?uname=yaya&upwd=222222&phone=16523201456
   
  
-  
+  /*
 //功能二：分页显示商品列表
 //(1).接收GET/details
 server.get("/details",(req,res)=>{
@@ -106,8 +107,9 @@ pool.query(sql,[off,ps],(err,result)=>{
 //检测 83~104 复制 你app.js重新
 //启动 node app.js
 //http://127.0.0.1:5050/details
-//http://127.0.0.1:4000/product?pno=2
+//http://127.0.0.1:5050/details?pno=2
 /*
+
 //功能三:将商品添加至购物车
 //1:接收请求 GET /addcart
 server.get("/addcart",(req,res)=>{
