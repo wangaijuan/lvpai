@@ -25,11 +25,15 @@ import Product from './components/product.vue'
 import Rank from './components/Rank.vue'
 // 引入了ChooseLogin.vue文件
 import Clogin  from './components/Clogin.vue'
+// 引入了Community.vue文件
+import Community  from './components/Community.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    // 引入Community.vue
+    {path:"/Community",name:Community,component:Community},
     // 引入Chooselogin.vue
     {path:"/Clogin",name:Clogin,component:Clogin},
     //引入Tabbar.vue

@@ -8,7 +8,7 @@
         <HomePage ></HomePage>
         </mt-tab-container-item>
         <mt-tab-container-item id="tab2">
-          <login ></login>
+          <Community ></Community>
         </mt-tab-container-item>
         <mt-tab-container-item id="tab3">
           <rank></rank>
@@ -51,7 +51,7 @@
 
 <script>
 import HomePage from "./HomePage.vue"
-import Login from "./Login.vue"
+import Community from "./Community.vue"
 import Rank from "./Rank.vue"
 import List from "./list.vue"
 import My from "./My.vue"
@@ -65,7 +65,7 @@ export default {
   },
   components:{  //注册子组件
     "HomePage":HomePage,  //子组件名：对象 
-    "login":Login,
+    "Community":Community,
     "rank":Rank,
     "List":List,
     "My":My  ,   

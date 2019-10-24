@@ -32,7 +32,7 @@
         <img src="../assets/nange/n1.png" />  
         <img src="../assets/nange/n2.png" />      
         <img src="../assets/nange/n3.png" />      
-        <img src="../assets/nange/n4.png" />        
+        <img src="../assets/nange/n4.png" />      
     </div>
      <div @click="shop" class="p1"> 
         <p>婚纱摄影</p>
@@ -112,25 +112,27 @@
 /* 轮播图形样式 */
     .swipe{
       width:100%;
+      height:50%;
       padding:0;
     }  
   /* 导航样式 */
   .nav{
     display: flex;
+
   }
   .nav img{
     display: flex;
     justify-content: space-around;
-    padding:18px;
-    width:50%;
-    height:50%;
+    padding:4px 23px;
+    width:50px;
+    height:50px;
   }
   .p1{
      display: flex;
   }
   .p1 p{
     margin:0;
-    padding:10px;
+    padding:2px;
     width:25%;
     font-size:16px;
   }
