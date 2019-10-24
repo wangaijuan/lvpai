@@ -1,3 +1,7 @@
+//在项目本地安装axios:
+//npm i -save axios
+
+
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'

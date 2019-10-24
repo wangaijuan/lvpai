@@ -29,7 +29,7 @@ export default {
              var treg=/^1[3-8]\d{9}$/;         
             //验证用户
             if(ureg.test(u)==false){
-                this.$messagebox("","用户名格式不正确");
+                this.$messagebox("消息","用户名格式不正确");
                 return;
             };
             if(ureg.test(p)==false){
@@ -46,14 +46,14 @@ export default {
             //console.log(obj);
              this.axios.get(url,{params:obj}).then(res=>{
                 console.log(res);
-                //  console.log(res.data.code);
-                if(res.data.code<0){
+                 console.log(res.data.code);  //-1
+               if(res.data.code<0){
                 this.$messagebox("消息","用户名,密码和手机号有误");
             }else{
-            //跳转product组件
+             //跳转product组件
             this.$router.push("/product");
-            } 
-          });
+                } 
+            });
         }
     }
 }
