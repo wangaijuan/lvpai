@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div @click="rank">
         <!-- 顶部图片 -->
         <div>
             <img src="../assets/hitpa/0.jpg" />
@@ -27,8 +27,12 @@
             <img src="../assets/hitpa/1.jpg" alt="">
             <img src="../assets/hitpa/2.jpg" alt="">
         </div>
+        <!-- 小视频 -->
+        <div class="container">
+            <video src="../assets/hitpa/3.mp4" controls loop preload="metadata" id="v3"></video>
+        </div>
         <!-- 商家权威排名 -->
-        <div>
+        <div class="big">
             <h4>商家权威排名</h4>
             <img class="img1" src="../assets/hitpa/4.jpg" alt="">
             <img class="img2" src="../assets/hitpa/3.jpg" alt="">
@@ -40,7 +44,7 @@
               <p class="p2">要玩创意,专业搞事情商家推荐</p>
            </div>
         </div>
-        <div style="margin-top:18px;">
+        <div style="margin-top:91px;">
            <img class="img1" src="../assets/hitpa/7.jpg" alt="">
             <img class="img2" src="../assets/hitpa/8.jpg" alt="">
             <img class="img3" src="../assets/hitpa/9.jpg" alt="">
@@ -51,7 +55,7 @@
               <p class="p4">好评商家榜,来自一群挑剔的人</p>
            </div> 
         </div>
-        <div style="margin-top:18px;">
+        <div style="margin-top:28px;">
            <img class="img1" src="../assets/hitpa/10.jpg" alt="">
             <img class="img2" src="../assets/hitpa/11.jpg" alt="">
             <img class="img3" src="../assets/hitpa/12.jpg" alt="">
@@ -69,16 +73,40 @@ export default {
         return {
             active:2
         }
-    }
+    },
+     methods:{
+        rank(){
+            // 点击跳转到login.vue
+            this.$router.push("/list");
+        }
+    },
 }
 </script>
 <style scoped>
    img{
        width:100%;
        margin-top:-20px;
-       margin-left:-3px;
+       margin-left:10px;
     }
-  .input{
+    /* 父元素相对定位 */
+    .container{
+        position:relative;
+        width:75px;
+        height:251px;
+        margin:20px 0;
+    }
+    /* 视频元素绝对定位 */
+    #v3{
+        position:absolute;
+        width:369px;
+        height:207px;
+        z-index:0;
+        margin:-7px -35px;
+    }
+    .big{
+        margin:-64px 0;
+    }
+    .input{
       margin:-40px 0;
   }
   .tab{

@@ -20,13 +20,13 @@ export default {
     },
     methods:{
         login(){
-            //获取用户名和密码
-            var u=this.uname;
-            var p=this.upwd;
-            var t=this.phone;
             // 创建正则表达式3~12位 字母数字
              var ureg=/^[a-z0-9]{3,12}$/i;
-             var treg=/^1[3-8]\d{9}$/;         
+             var treg=/^1[3-8]\d{9}$/;
+             //获取用户名和密码
+              var u=this.uname;
+              var p=this.upwd;
+              var t=this.phone;         
             //验证用户
             if(ureg.test(u)==false){
                 this.$messagebox("消息","用户名格式不正确");
@@ -41,17 +41,18 @@ export default {
                 return;
             }
             //发送ajax请求
-             var url = "login";
+             var url = "Clogin";
              var obj = {uname:u,upwd:p,phone:t};
             //console.log(obj);
+            console.log(obj);
              this.axios.get(url,{params:obj}).then(res=>{
-                console.log(res);
-                 console.log(res.data.code);  //-1
+                //console.log(res);
+                 console.log(res.data.code);  
                if(res.data.code<0){
                 this.$messagebox("消息","用户名,密码和手机号有误");
             }else{
              //跳转product组件
-            this.$router.push("/product");
+            this.$router.push("/Tabbar");
                 } 
             });
         }
