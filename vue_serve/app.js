@@ -28,7 +28,7 @@ var pool = mysql.createPool({
  server.use(cors({
 //   //允许程序列表
    origin:["http://127.0.0.1:8080","http://localhost:8080"],
-//   credentials:true//每次请求需要验证
+credentials:true//每次请求需要验证
  }))
 //5:配置session模块
  server.use(session({
@@ -49,7 +49,7 @@ server.get("/Clogin",(req,res)=>{
   var phone=req.query.phone;
   console.log(uname,upwd,phone);
   //2.sql语句
-  var sql = "SELECT * FROM lp_user WHERE uname = ? AND upwd = md5(?) AND phone = ?";
+  var sql = "SELECT id FROM lp_user WHERE uname = ? AND upwd = ? AND phone = ?";
   //3.执行sql语句
   pool.query(sql,[uname,upwd,phone],(err,result)=>{
     if(err)throw err;
