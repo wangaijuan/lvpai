@@ -9,7 +9,7 @@
       <!-- 小图标 -->
        <div class="a1">
         <img  src="../assets/small/phone.png" />
-        <img  src="../assets/s  mall/message.png" />
+        <img  src="../assets/small/message.png" />
        </div>
     </div> 
 
